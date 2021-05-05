@@ -1,4 +1,4 @@
-# Mercari Item Classfication API
+# Mercari Item Classification
 
 > This repo contains a dummy project created during Build@Mercari 2021
 > to learn about the Deployment of ML Models
