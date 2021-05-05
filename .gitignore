@@ -1,0 +1,4 @@
+.pytest_cache/
+env/
+mercari_model/trained_models/lr_cv_pipeline.pkl
+mercari_model/datasets/
