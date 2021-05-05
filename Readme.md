@@ -17,3 +17,7 @@ Steps to reproduce after cloning the repo:
 Next todo:
 - add tox
 - add shell script to automate dataset download
+- understand the module system, and why, for example, `python predict.py` doesn't work, but predicting using pytest works
+- deploy to heroku manually
+- deploy to heroku using docker
+- (opt) circleCI for CI/CD
