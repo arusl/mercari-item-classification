@@ -1,4 +1,6 @@
+.tox/
 __pycache__/
 .pytest_cache/
 env/
 mercari_model/datasets/
+mercari_model/trained_models/lr_cv_pipeline.pkl
