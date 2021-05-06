@@ -69,3 +69,5 @@ def create_app(test_config=None):
         return jsonify({'name': item_name, 'predicted_label': item_category})
 
     return app
+
+app = create_app()
