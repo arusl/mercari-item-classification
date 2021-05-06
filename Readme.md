@@ -16,6 +16,7 @@ Steps to reproduce after cloning the repo:
 
 Next todo:
 - add tox
+    - esp. to train model after cloning, instead of pushing the trained pipeline to github
 - add shell script to automate dataset download
 - understand the module system, and why, for example, `python predict.py` doesn't work, but predicting using pytest works
 - deploy to heroku manually
