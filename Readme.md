@@ -12,7 +12,7 @@ Steps to reproduce after cloning the repo:
 6. Run `tox -e train` to train and save the pipeline for later inference
 7. Run `pytest` or `tox` to run pytest scripts make sure all APIs are working
 8. Run `export FLASK_APP=flask_apis` to set which module contains the Flask API
-9. Run `flask run` to serve the api, or type `python wsgi.py`
+9. Run `flask run` to serve the api, or run `python wsgi.py`
 10. Test using any frontend app or Postman to try the APIs
 
 Next todo:
