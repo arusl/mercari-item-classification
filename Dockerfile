@@ -1,23 +1,21 @@
+#Using the base image with python 3.7
 FROM python:3.9.4
 
-# Create the user that will run the app
-RUN adduser --disabled-password --gecos '' ml-api-user
+#Set our working directory as app
+WORKDIR /app 
 
-WORKDIR /opt/ml_api
+# Copy the models directory, api, and wsgi.py files
+ADD ./flask_apis ./flask_apis
+ADD ./mercari_model ./mercari_model
+ADD wsgi.py wsgi.py
+ADD ./requirements.txt ./requirements.txt
 
-ARG PIP_EXTRA_INDEX_URL
-ENV FLASK_APP wsgi.py
-
-# Install requirements
-ADD ./flask_apis /opt/ml_api
-RUN pip install --upgrade pip
+#Installing the required python packages
 RUN pip install -r requirements.txt
 
-RUN chmod +x /opt/ml_api/run.sh
-RUN chown -R ml-api-user:ml-api-user ./
-
-USER ml-api-user
-
+#Exposing the port 5000 from the container
 EXPOSE 5000
 
-CMD ["bash", "./run.sh"]
+#Starting the python application
+# CMD ["python", "wsgi.py"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
