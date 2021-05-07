@@ -16,5 +16,4 @@ Steps to reproduce after cloning the repo:
 10. Test using any frontend app or Postman to try the APIs
 
 Next todo:
-- deploy to heroku using docker
-- (opt) circleCI for CI/CD
+- circleCI for CI/CD
