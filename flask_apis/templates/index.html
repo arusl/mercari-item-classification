@@ -1,0 +1,34 @@
+<!doctype html>
+<body style="margin: 50px">
+    <h1>
+        Welcome!
+    </h1>
+    <div>
+        This application is a dummy project made during <strong>Build @ Mercari 2021</strong> to learn about the Deployment of ML Models.<br/>
+        This application currently has one API serving a model for classifying a product category based on its name.<br/>
+        There are 10 main categories that a product can be classified into, which are:
+        <ol>
+            <li>Beauty</li>
+            <li>Handmade</li>
+            <li>Vintage & Collectibles</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>Kids</li>
+            <li>Electronics</li>
+            <li>Sports & Outdoors</li>
+            <li>Home</li>
+            <li>Other</li>
+        </ol>
+        You can try to use the model too by sending a POST request to https://udemy-mercari-api.herokuapp.com/api/v1/predict, <br/>
+        and send a JSON body with key="item_name" and value="the name of the item you want to predict".<br/><br/>
+        Example request JSON:
+        <code>
+            { "item_name": "logitech mouse" }
+        </code><br/>
+        Example response JSON:
+        <code>
+            { "item_name": "logitech mouse", "label": "Electronics" }
+        </code>
+    </div>
+</body>
+</html>

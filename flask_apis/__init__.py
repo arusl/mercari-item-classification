@@ -3,6 +3,7 @@ import os
 from flask import Flask, jsonify, request
 from mercari_model import config
 from mercari_model.predict import make_prediction
+from flask import render_template
 
 def create_app(test_config=None):
     # create and configure the app
@@ -27,7 +28,8 @@ def create_app(test_config=None):
     # root page
     @app.route('/')
     def welcome():
-        return "Welcome!"
+        return render_template("index.html")
+        # return "Welcome!"
 
     # a simple page that says hello
     @app.route('/hello')
