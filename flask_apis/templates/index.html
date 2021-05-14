@@ -5,7 +5,7 @@
     </h1>
     <div>
         This application is a dummy project made during <strong>Build @ Mercari 2021</strong> to learn about the Deployment of ML Models.<br/>
-        This application currently has one API serving a model for classifying a product category based on its name.<br/>
+        This application currently has one API serving a model for classifying a product category based on its name and description.<br/>
         There are 10 main categories that a product can be classified into, which are:
         <ol>
             <li>Beauty</li>
@@ -20,15 +20,58 @@
             <li>Other</li>
         </ol>
         You can try to use the model too by sending a POST request to <strong>https://udemy-mercari-api.herokuapp.com/api/v1/predict_category</strong>, <br/>
-        and send a JSON body with key="item_name" and value="the name of the item you want to predict".<br/><br/>
+        and send a JSON body with keys: "item_name" and "item_desc", and fill the string values accordingly.<br/><br/>
         Example request JSON:
         <code>
-            { "item_name": "logitech mouse" }
-        </code><br/>
+            { "item_name": "Unused Logitech Mouse", "item_desc": "logitech master mx 2s, bought in January 2021 but only used for unboxing video." }
+        </code><br/><br/>
         Example response JSON:
         <code>
-            { "item_name": "logitech mouse", "label": "Electronics" }
+            { "item_name": "Unused Logitech Mouse", "item_desc": "logitech master mx 2s, bought in January 2021 but only used for unboxing video.", "predicted_category": "Electronics" }
         </code>
+        <br/>
+        <br/>
+        You can also find the source code of this application along with the API on <a href="https://github.com/arusl/mercari-item-classification">this Github repo</a>.
+    </div>
+    <br/>
+    <hr/>
+    <hr/>
+    <div>
+        <h2>Try predicting!</h2>
+        <form onsubmit="predict()">
+            Item Name: <input size="50%" type="text" id="name" /><br/><br/>
+            Item Description: <input size="50%" type="text" id="desc" /><br/><br/>
+        </form>
+        <button onclick="predict()">Predict</button><span id='loading'></span>
+        <br /><br/>
+        <div id="result"></div>
     </div>
 </body>
 </html>
+<script>
+    function predict() {
+        document.getElementById('loading').innerHTML = "please wait";
+        let itemName = document.getElementById("name").value;
+        let itemDesc = document.getElementById("desc").value;
+
+        let reqBody = {
+            "item_name": itemName,
+            "item_desc": itemDesc,
+        }
+        fetch('api/v1/predict_category', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reqBody),
+        }).then(res=>{
+            res.json().then(res=>{
+                document.getElementById('loading').innerHTML = "";
+                document.getElementById('result').innerHTML = "Predicted category: " + JSON.stringify(res.predicted_category);
+            })
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+</script>
