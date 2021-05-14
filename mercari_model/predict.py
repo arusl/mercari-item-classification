@@ -16,6 +16,4 @@ def make_prediction(input_data):
 if __name__ == "__main__":
     #test pipeline
     pred = make_prediction(['nike yoga pants girl size S','adidas soccer shoes', 'samsung galaxy s10'])
-    print({'Beauty': 0, 'Handmade': 1, 'Vintage & Collectibles': 2, 'Men': 3, 'Women': 4, 'Kids': 5, 'Electronics': 6, 'Sports & Outdoors': 7, 'Other': 8, 'Home': 9})
-    print(['double door fridge','adidas soccer shoes', 'samsung galaxy s10'])
     print(pred)

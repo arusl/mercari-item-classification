@@ -1,12 +1,12 @@
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 
 from mercari_model import config
 
-lr__cv_pipeline = Pipeline(
+lr_tfidf_pipeline = Pipeline(
     [
-        ("cvect", CountVectorizer(lowercase=True, stop_words={"english"})),
-        ("clf", LogisticRegression(random_state=config.RANDOM_SEED)),
+        ("vect", TfidfVectorizer(ngram_range=(1,2), lowercase=True, stop_words={"english"})),
+        ("clf", LogisticRegression(random_state=config.RANDOM_SEED, C=1, max_iter=300)),
     ]
 )

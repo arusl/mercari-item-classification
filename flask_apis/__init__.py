@@ -57,18 +57,16 @@ def create_app(test_config=None):
         else:
             return "Error: No item_name field provided. Please specify a item_name."
         
-        model_name = config.PIPELINE_NAME
-        
-        pred = make_prediction([item_name])
+        if 'item_desc' in request.json:
+            item_desc = request.json['item_desc']
+        else:
+            return "Error: No item_desc field provided. Please specify a item_desc."
 
-        # Convert integer prediction to a label string
-        label_dict = config.LABEL_DICT
-        key_list = list(label_dict.keys())
-        val_list = list(label_dict.values())
-        position = val_list.index(pred[0])
-        item_category = key_list[position]
+        name_desc = item_name + " " + item_desc
 
-        return jsonify({'name': item_name, 'predicted_label': item_category})
+        pred = make_prediction([name_desc])
+
+        return jsonify({'item_name': item_name, 'item_desc':item_desc, 'predicted_category': pred[0]})
 
     return app
 
