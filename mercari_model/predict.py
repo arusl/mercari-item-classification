@@ -15,5 +15,5 @@ def make_prediction(input_data):
 
 if __name__ == "__main__":
     #test pipeline
-    pred = make_prediction(['nike yoga pants girl size S','adidas soccer shoes', 'samsung galaxy s10'])
+    pred = make_prediction(['nike yoga pants girl size S','adidas soccer shoes', 'samsung galaxy s10', 'star wars food container small'])
     print(pred)
