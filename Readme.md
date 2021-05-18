@@ -3,7 +3,9 @@
 > This repo contains a dummy project created during Build@Mercari 2021
 > to learn about the Deployment of ML Models
 
-Steps to reproduce after cloning the repo:
+Live Demo: http://udemy-mercari-api.herokuapp.com/
+
+Steps to run the application locally after cloning the repo:
 1. Make sure you are inside the root directory `mercari-item-classification`
 2. Download dataset from https://www.kaggle.com/c/mercari-price-suggestion-challenge
 3. Put the *train.tsv* and *test.csv* under `mercari_model/datasets/`
